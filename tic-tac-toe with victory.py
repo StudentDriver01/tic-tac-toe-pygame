@@ -64,7 +64,7 @@ def win_check(num):
     else:
         return True
     
-
+Space_allow = True
 
 draw_object = 'rect'
 
@@ -103,8 +103,10 @@ while run:
             run = False
 
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_SPACE and Space_allow == True :
                 
+                
+
                 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
                 first_open = True
@@ -243,13 +245,16 @@ while run:
         won = True
         win.fill(GRAY)
         win.blit(img, rect)
-        print("Winner")
+        if won == True:
+            Space_allow = False    
         
+
     if win_check(1):
         won = True
         win.fill(GRAY)
         win.blit(img1, rect1)
-        
+        if won == True:
+            Space_allow = False
             
             
     pygame.display.update()
