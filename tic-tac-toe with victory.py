@@ -243,6 +243,7 @@ while run:
         won = True
         win.fill(GRAY)
         win.blit(img, rect)
+        print("Winner")
         
     if win_check(1):
         won = True
