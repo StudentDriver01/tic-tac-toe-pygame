@@ -33,7 +33,7 @@ seventh = pygame.draw.rect(win, (255,255,255), (25,375,150,150))
 eighth = pygame.draw.rect(win, (255,255,255), (200,375,150,150))
 ninth = pygame.draw.rect(win, (255,255,255), (375,375,150,150))
 
-#------- Check winer -----
+#------- Check winner -----
 
 #board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 def win_check(num):
@@ -113,7 +113,7 @@ img2 = font2.render(text2, True, BLACK)
 rect2 = img2.get_rect()
 rect2.topleft = (129, 200)
 
-#------ Tie screen ------
+#------ Tie Text ------
 
 font3 = pygame.font.SysFont('JetBrains Mono', 100)
 
@@ -129,13 +129,16 @@ run = True
 won = False
 while run:
 
-    pygame.time.delay(100)
+
 
 #-------- Quit Code -------
+
     for event in pygame.event.get() :
         if event.type == pygame.QUIT:
             run = False
+            
 #--------- Reset Code --------
+
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 
@@ -165,7 +168,8 @@ while run:
                 eighth = pygame.draw.rect(win, (255,255,255), (200,375,150,150))
                 ninth = pygame.draw.rect(win, (255,255,255), (375,375,150,150))
 
-#-----------Mouse input -------   
+#-----------Mouse input ------- 
+
         if event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
             if won != True:
@@ -279,6 +283,7 @@ while run:
                         board[2][2] = 1
                     ninth_open = False
 #------------- Tie -----------------
+
     if first_open == False and second_open == False and third_open == False and forth_open == False and fifth_open == False and sixth_open == False and seventh_open == False and eighth_open == False and ninth_open == False:
         win.fill(GRAY)
         win.blit(img3, rect3)
@@ -292,13 +297,13 @@ while run:
         win.blit(img2, rect2)
            
 #----------Circle Victory-----------  
+
     if win_check(1):
         
         win.fill(GRAY)
         win.blit(img1, rect1)
         win.blit(img2, rect2)
-        
-            
+       
             
     pygame.display.update()
     
